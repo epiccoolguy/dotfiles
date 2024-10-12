@@ -43,6 +43,11 @@
 
       homebrew = {
         enable = true;
+        casks = [
+          "firefox"
+          "google-chrome"
+          "visual-studio-code"
+        ];
       };
 
       fonts.packages = with pkgs;
