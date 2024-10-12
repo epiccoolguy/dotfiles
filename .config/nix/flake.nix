@@ -58,6 +58,9 @@
           "iina"
           "visual-studio-code"
         ];
+        masApps = {
+          "WireGuard" = 1451685025;
+        };
       };
 
       fonts.packages = with pkgs;
