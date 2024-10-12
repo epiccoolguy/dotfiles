@@ -30,7 +30,12 @@
       environment.systemPackages = with pkgs;
         [
           alacritty
+          bat
+          fzf
+          git-credential-manager
+          mkalias
           neovim
+          zoxide
         ];
 
       homebrew = {
