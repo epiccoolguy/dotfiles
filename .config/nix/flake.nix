@@ -68,6 +68,11 @@
           (nerdfonts.override { fonts = [ "Monaspace" ]; })
         ];
 
+
+      system.defaults = {
+        dock.autohide = true;
+      };
+
       # START https://gist.github.com/elliottminns/211ef645ebd484eb9a5228570bb60ec3
       system.activationScripts.applications.text = let
         env = pkgs.buildEnv {
