@@ -19,6 +19,11 @@
           neovim
         ];
 
+      fonts.packages = with pkgs;
+        [
+          (nerdfonts.override { fonts = [ "Monaspace" ]; })
+        ];
+
       # START https://gist.github.com/elliottminns/211ef645ebd484eb9a5228570bb60ec3
       system.activationScripts.applications.text = let
         env = pkgs.buildEnv {
