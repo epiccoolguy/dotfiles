@@ -12,8 +12,9 @@
     configuration = { pkgs, config, ... }: {
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
-      environment.systemPackages =
-        [ pkgs.vim
+      environment.systemPackages = with pkgs;
+        [
+          neovim
         ];
 
       # START https://gist.github.com/elliottminns/211ef645ebd484eb9a5228570bb60ec3
