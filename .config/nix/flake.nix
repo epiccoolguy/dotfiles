@@ -47,6 +47,7 @@
         casks = [
           "firefox"
           "google-chrome"
+          "iina"
           "visual-studio-code"
         ];
       };
