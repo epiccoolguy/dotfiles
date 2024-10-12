@@ -38,6 +38,7 @@
           google-cloud-sdk
           mkalias
           neovim
+          tmux
           zoxide
         ];
 
