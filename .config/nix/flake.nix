@@ -30,9 +30,12 @@
       environment.systemPackages = with pkgs;
         [
           alacritty
+          awscli2
+          azure-cli
           bat
           fzf
           git-credential-manager
+          google-cloud-sdk
           mkalias
           neovim
           zoxide
