@@ -124,7 +124,7 @@
   {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#macbook
-    darwinConfigurations."macbook" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations.macbook = nix-darwin.lib.darwinSystem {
       modules =
       [
         configuration
@@ -155,7 +155,7 @@
     };
 
     # Expose the package set, including overlays, for convenience.
-    darwinPackages = self.darwinConfigurations."macbook".pkgs;
+    darwinPackages = self.darwinConfigurations.macbook.pkgs;
 
     # Enable nixfmt as formatter
     formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
