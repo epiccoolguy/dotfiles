@@ -44,6 +44,9 @@
 
       homebrew = {
         enable = true;
+        brews = [
+          "mas"
+        ];
         casks = [
           "1password"
           "firefox"
