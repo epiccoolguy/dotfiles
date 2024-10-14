@@ -161,7 +161,7 @@
           programs.zsh = {
             enable = true;
             shellAliases = {
-              switch = "darwin-rebuild switch --flake ~/.config/nix#macbook";
+              switch = "darwin-rebuild switch --flake ~/.config/nix";
             };
           };
 
