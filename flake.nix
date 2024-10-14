@@ -164,6 +164,17 @@
               switch = "darwin-rebuild switch --flake ~/.config/nix#macbook";
             };
           };
+
+          programs.git = {
+            enable = true;
+            userName = "Miguel Lo-A-Foe";
+            userEmail = "miguel@loafoe.dev";
+            ignores = [ ".DS_Store" ];
+            extraConfig = {
+              init.defaultBranch = "master";
+              push.autoSetupRemote = true;
+            };
+          };
         };
     in
     {
