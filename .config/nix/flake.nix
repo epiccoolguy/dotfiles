@@ -18,6 +18,10 @@
       url = "github:homebrew/homebrew-bundle";
       flake = false;
     };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -29,11 +33,17 @@
       homebrew-core,
       homebrew-cask,
       homebrew-bundle,
+      home-manager,
     }:
     let
       configuration =
         { pkgs, config, ... }:
         {
+          users.users.miguel = {
+            name = "miguel";
+            home = "/Users/miguel";
+          };
+
           nixpkgs.config.allowUnfree = true;
 
           # List packages installed in system profile. To search by name, run:
@@ -129,6 +139,23 @@
           # Enable using Touch ID authentication for `sudo`
           security.pam.enableSudoTouchIdAuth = true;
         };
+      homeconfig =
+        { pkgs, ... }:
+        {
+          # this is internal compatibility configuration
+          # for home-manager, don't change this!
+          home.stateVersion = "23.05";
+          # Let home-manager install and manage itself.
+          programs.home-manager.enable = true;
+
+          home.packages = with pkgs; [
+
+          ];
+
+          home.sessionVariables = {
+            EDITOR = "nvim";
+          };
+        };
     in
     {
       # Build darwin flake using:
@@ -158,6 +185,13 @@
               # With mutableTaps disabled, taps can no longer be added imperatively with `brew tap`.
               mutableTaps = false;
             };
+          }
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.verbose = true;
+            home-manager.users.miguel = homeconfig;
           }
         ];
       };
