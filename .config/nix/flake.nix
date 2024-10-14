@@ -157,6 +157,13 @@
           };
 
           home.file.".alacritty.toml".source = ./.alacritty.toml;
+
+          programs.zsh = {
+            enable = true;
+            shellAliases = {
+              switch = "darwin-rebuild switch --flake ~/.config/nix";
+            };
+          };
         };
     in
     {
