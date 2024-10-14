@@ -155,6 +155,8 @@
           home.sessionVariables = {
             EDITOR = "nvim";
           };
+
+          home.file.".alacritty.toml".source = ./.alacritty.toml;
         };
     in
     {
